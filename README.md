@@ -9,3 +9,8 @@ Second project is a primitive game. User can attack and strong-attack opponent. 
 
 
 <img width="900" alt="image" src="https://user-images.githubusercontent.com/98178556/165351075-80d4efee-bf59-4452-b259-54a85481088a.png">
+
+
+Third project is a memory game. When player presses the START button, boxes light-up in certain order. After that, player must press the boxes in the same order as the program lighted them up. If not, player loses. On first level, 3 boxes light up one after another. After every win, number of lightening boxes increases by one. After failure, game resets, and starts again from 3 boxes.
+
+<img width="406" alt="image" src="https://user-images.githubusercontent.com/98178556/165630359-8d94ace2-6ac2-4b4f-aca8-34d8df130714.png">
