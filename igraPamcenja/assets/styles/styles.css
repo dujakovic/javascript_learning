@@ -1,0 +1,48 @@
+.container {
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-row: auto auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  margin: 20px auto;
+  width:400px;
+  height:400px;
+  background-color:#fff;
+}
+
+.faded {
+  opacity: 0.5;
+}
+
+.nonFaded {
+  opacity: 1;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.startBtn {
+  width: 100px;
+  height: 50px;
+  text-transform: uppercase;
+}
