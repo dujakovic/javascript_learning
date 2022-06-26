@@ -1,8 +1,8 @@
-var correctBtnOrder = [];
-var initialNumberOfGuesses = 3;
+var correctBtnOrder = []; //redosled; kako zasvetle, on gura u niz, i to je redosled koji user posle treba da klikne
+var initialNumberOfGuesses = 3; //pocetni nivo
 var nextCorrectGuess = undefined;
 var numberOfCorrectGuesses = 0;
-var audio = new Audio('assets/scripts/ding.wav');
+var audio = new Audio('ding.wav');
 
 
 async function startHandler() {
@@ -10,7 +10,12 @@ async function startHandler() {
   for (let i = 0; i < initialNumberOfGuesses; i++) {
     let randomNo = getRandomInt(4);
     correctBtnOrder.push("btn_" + randomNo);
-    await lightUpBox(randomNo);
+    try {
+      await lightUpBox(randomNo); // takodje mora await, jer svako naredno polje mora da saceka da zasvetli
+      await wait(150); // mora await, jer ona mora da saceka svako zasvetljenje pa da se izvrsi
+    } catch (error) {
+      console.log("Error!");
+    }
   }
   nextCorrectGuess = correctBtnOrder.shift();
 }
@@ -19,8 +24,18 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
+async function wait(miliseconds) {
+  return new Promise ((resolve, reject) => {
+    if(!miliseconds){reject();}
+    setTimeout(() => {
+      resolve();
+    }, miliseconds)
+  });
+};
+
 async function lightUpBox(boxId) {
   return new Promise((resolve, reject) => {
+    if(!boxId){reject();}
     const box = document.getElementById("btn_" + boxId);
     box.classList.remove("faded");
     box.classList.add("nonFaded");
@@ -29,7 +44,7 @@ async function lightUpBox(boxId) {
       box.classList.add("faded");
       resolve(true);
     }, 800);
-    })
+})
 }
 
 function handleBoxClick(boxNumber) {
@@ -45,7 +60,7 @@ function handleBoxClick(boxNumber) {
     audio.play()
     alert('Congratulations!');
     resetGame(true);
-  } 
+  }
 }
 
 function resetGame(won) {
