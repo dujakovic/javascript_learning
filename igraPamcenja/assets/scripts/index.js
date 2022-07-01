@@ -1,5 +1,5 @@
-var correctBtnOrder = []; //redosled; kako zasvetle, on gura u niz, i to je redosled koji user posle treba da klikne
-var initialNumberOfGuesses = 3; //pocetni nivo
+var correctBtnOrder = []; 
+var initialNumberOfGuesses = 3; 
 var nextCorrectGuess = undefined;
 var numberOfCorrectGuesses = 0;
 var audio = new Audio('ding.wav');
@@ -11,8 +11,8 @@ async function startHandler() {
     let randomNo = getRandomInt(4);
     correctBtnOrder.push("btn_" + randomNo);
     try {
-      await lightUpBox(randomNo); // takodje mora await, jer svako naredno polje mora da saceka da zasvetli
-      await wait(150); // mora await, jer ona mora da saceka svako zasvetljenje pa da se izvrsi
+      await lightUpBox(randomNo); 
+      await wait(150); 
     } catch (error) {
       console.log("Error!");
     }
